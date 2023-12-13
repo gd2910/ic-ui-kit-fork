@@ -588,6 +588,7 @@ export const DATA_REACT_ELEMENTS = [
     age: 30,
     jobTitle: "Developer",
     address: "1 Main Street, Town, County, Postcode",
+    actions: `<IcButton variant='destructive' onClick={this.closest("tr").remove()}>Delete</IcButton>`,
   },
   {
     firstName: "Sarah",
@@ -595,6 +596,7 @@ export const DATA_REACT_ELEMENTS = [
     age: 28,
     jobTitle: "Analyst",
     address: "2 Main Street, Town, Country, Postcode",
+    actions: `<IcButton variant='destructive' onClick={this.closest("tr").remove()}>Delete</IcButton>`,
   },
   {
     firstName: "Mark",
@@ -602,6 +604,7 @@ export const DATA_REACT_ELEMENTS = [
     age: 45,
     jobTitle: "Team Lead",
     address: "12 Key Street, Town, Country, Postcode",
+    actions: `<IcButton variant='destructive' onClick={this.closest("tr").remove()}>Delete</IcButton>`,
   },
   {
     firstName: "Naomi",
@@ -609,6 +612,7 @@ export const DATA_REACT_ELEMENTS = [
     age: 32,
     jobTitle: "Developer",
     address: "8 Side Street, Town, Country, Postcode",
+    actions: `<IcButton variant='destructive' onClick={this.closest("tr").remove()}>Delete</IcButton>`,
   },
   {
     firstName: "Luke",
@@ -616,6 +620,7 @@ export const DATA_REACT_ELEMENTS = [
     age: 18,
     jobTitle: "Junior Developer",
     address: "5 New Street, Town, Country, Postcode",
+    actions: `<IcButton variant='destructive' onClick={this.closest("tr").remove()}>Delete</IcButton>`,
   },
 ];
 
@@ -760,6 +765,19 @@ export const Loading = (): HTMLIcDataTableElement => {
   const dataTable = createDataTableElement("Loading State", COLS, DATA);
 
   dataTable.setAttribute("loading", "true");
+  return dataTable;
+};
+export const EmptyLoading = (): HTMLIcDataTableElement => {
+  const dataTable = createDataTableElement(
+    "Empty and Loading State",
+    COLS,
+    null
+  );
+
+  setTimeout(() => {
+    dataTable.setAttribute("loading", "true");
+    setTimeout(() => (dataTable.data = DATA), 10);
+  }, 5000);
   return dataTable;
 };
 

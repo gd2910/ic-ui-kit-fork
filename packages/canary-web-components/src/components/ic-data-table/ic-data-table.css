@@ -217,6 +217,10 @@ table {
 .loading-empty {
   padding: var(--ic-space-xl) var(--ic-space-xxl);
   margin-top: var(--ic-space-xl);
+} 
+
+.below-table {
+  padding: var(--ic-space-xl) var(--ic-space-xxl);
 }
 
 .updating-state {

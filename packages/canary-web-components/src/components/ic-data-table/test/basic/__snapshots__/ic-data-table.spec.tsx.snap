@@ -6237,13 +6237,8 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                   </ic-typography>
                   <ic-button aria-label="Sort descending" class="button-size-default button-variant-icon sort-button" exportparts="button" id="sort-button-name">
                     <mock:shadow-root>
-<<<<<<< HEAD:packages/canary-web-components/src/components/ic-data-table/test/basic/__snapshots__/ic-data-table.spec.tsx.snap
                       <ic-tooltip label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-name">
                         <button aria-label="null" class="button" id="ic-button-with-tooltip-sort-button-name" part="button" type="button">
-=======
-                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-name" label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-name">
-                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-name" aria-label="Sort ascending" class="button" part="button" type="button">
->>>>>>> 8d976dad (fix(web-components): changed ic-menu aria-selected to be string value):packages/web-components/src/components/ic-data-table/test/basic/__snapshots__/ic-data-table.spec.tsx.snap
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -6516,13 +6511,8 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                   </ic-typography>
                   <ic-button aria-label="Remove sort" class="button-size-default button-variant-icon sort-button" exportparts="button" id="sort-button-name">
                     <mock:shadow-root>
-<<<<<<< HEAD:packages/canary-web-components/src/components/ic-data-table/test/basic/__snapshots__/ic-data-table.spec.tsx.snap
                       <ic-tooltip label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-name">
                         <button aria-label="null" class="button" id="ic-button-with-tooltip-sort-button-name" part="button" type="button">
-=======
-                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-name" label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-name">
-                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-name" aria-label="Sort ascending" class="button" part="button" type="button">
->>>>>>> 8d976dad (fix(web-components): changed ic-menu aria-selected to be string value):packages/web-components/src/components/ic-data-table/test/basic/__snapshots__/ic-data-table.spec.tsx.snap
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -6795,13 +6785,8 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                   </ic-typography>
                   <ic-button aria-label="Sort ascending" class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-name">
                     <mock:shadow-root>
-<<<<<<< HEAD:packages/canary-web-components/src/components/ic-data-table/test/basic/__snapshots__/ic-data-table.spec.tsx.snap
                       <ic-tooltip label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-name">
                         <button aria-label="null" class="button" id="ic-button-with-tooltip-sort-button-name" part="button" type="button">
-=======
-                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-name" label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-name">
-                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-name" aria-label="Sort ascending" class="button" part="button" type="button">
->>>>>>> 8d976dad (fix(web-components): changed ic-menu aria-selected to be string value):packages/web-components/src/components/ic-data-table/test/basic/__snapshots__/ic-data-table.spec.tsx.snap
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -6817,13 +6802,8 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                   </ic-typography>
                   <ic-button aria-label="Sort descending" class="button-size-default button-variant-icon sort-button" exportparts="button" id="sort-button-age">
                     <mock:shadow-root>
-<<<<<<< HEAD:packages/canary-web-components/src/components/ic-data-table/test/basic/__snapshots__/ic-data-table.spec.tsx.snap
                       <ic-tooltip label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-age">
                         <button aria-label="null" class="button" id="ic-button-with-tooltip-sort-button-age" part="button" type="button">
-=======
-                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-age" label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-age">
-                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-age" aria-label="Sort ascending" class="button" part="button" type="button">
->>>>>>> 8d976dad (fix(web-components): changed ic-menu aria-selected to be string value):packages/web-components/src/components/ic-data-table/test/basic/__snapshots__/ic-data-table.spec.tsx.snap
                           <slot></slot>
                         </button>
                       </ic-tooltip>
