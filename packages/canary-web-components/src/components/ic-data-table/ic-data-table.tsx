@@ -31,7 +31,6 @@ import {
 } from "../ic-pagination/ic-pagination.types";
 import { IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
 import {
-  getCurrentDeviceSize,
   isSlotUsed,
   getSlotContent,
   checkResizeObserver,
@@ -275,17 +274,14 @@ export class DataTable {
     this.dataTruncation();
   }
 
-  private resizeObserverCallback = (currSize: number) => {
-    if (currSize !== this.deviceSize) {
-      this.deviceSize = currSize;
-      this.dataTruncation();
-    }
+  private resizeObserverCallback = () => {
+    console.log("resizing");
+    this.dataTruncation();
   };
 
   private runResizeObserver = () => {
     this.resizeObserver = new ResizeObserver(() => {
-      const currSize = getCurrentDeviceSize();
-      this.resizeObserverCallback(currSize);
+      this.resizeObserverCallback();
     });
     this.resizeObserver.observe(this.el);
   };
@@ -311,11 +307,14 @@ export class DataTable {
     typographyEl: HTMLIcTypographyElement,
     cellContainer: HTMLElement
   ) => {
-    typographyEl.maxLines = 1;
-    typographyEl.checkMaxLines(
-      cellContainer.clientHeight +
-        this.DENSITY_PADDING_HEIGHT_DIFF[this.density]
-    );
+    // Given the text is overflowing its parent container, calculate the maxLines that can be shown and minus 1 to take into account the line used for the see more/less button. At a minimum, one line should be shown.
+    // TODO: in which case would the 1 line override need to come into place
+    // TODO: will the line height always be 24? Does zooming in or out affect this value
+    typographyEl.maxLines =
+      Math.floor(cellContainer.clientHeight / 24) - 1 || 1;
+    /* Adding 24 to checkMaxLines ensures an extra line is available for the `See More/See Less` button to move onto.
+     */
+    typographyEl.checkMaxLines(cellContainer.clientHeight + 24);
     this.removeDivStyles(cellContainer);
   };
 
@@ -325,7 +324,9 @@ export class DataTable {
         "ic-typography:not(.column-header-text)"
       )
     ).forEach((typographyEl: HTMLIcTypographyElement) => {
+      console.log("data truncation function called");
       const tableCell = typographyEl.closest("td");
+      // this catches the closest tooltip without piercing through the shadow DOM
       const tooltip = typographyEl.closest("ic-tooltip");
       const cellContainer = typographyEl.closest(
         ".cell-container"
@@ -336,24 +337,41 @@ export class DataTable {
         !!typographyEl.scrollHeight
       ) {
         if (tooltip) {
+          // Removes tooltip when the text doesn't need to be truncated
           cellContainer.appendChild(typographyEl);
           tooltip.remove();
         } else {
+          // See more/less truncation pattern
+          // Resets the max lines prop when the text doesn't need to be truncated
           typographyEl.maxLines = undefined;
         }
-      } else if (typographyEl.scrollHeight > cellContainer.clientHeight) {
+      } else if (
+        typographyEl.scrollHeight > cellContainer.clientHeight &&
+        !cellContainer.classList.contains("data-type-element")
+      ) {
         if (this.truncationPattern === "tooltip") {
+          // Truncate the text using line clamp
           typographyEl.style.webkitLineClamp = `${Math.floor(
             cellContainer.clientHeight / 24
           )}`;
+          // If the text is overflowing and there isn't already a tooltip, add a tooltip
           if (!tooltip) {
             const tooltipEl = document.createElement("ic-tooltip");
             tooltipEl.setAttribute("target", typographyEl.id);
-            tooltipEl.setAttribute("label", typographyEl.innerHTML);
+            tooltipEl.setAttribute("label", typographyEl.textContent);
+            tooltipEl.setAttribute("max-lines", "6");
             typographyEl.parentNode.replaceChild(tooltipEl, typographyEl);
             tooltipEl.appendChild(typographyEl);
           }
         } else {
+          // See more/less truncation pattern
+          (typographyEl.id === "jobTitle-1" ||
+            typographyEl.id === "jobTitle-4") &&
+            console.log(
+              typographyEl.scrollHeight > cellContainer.clientHeight,
+              "calculated max lines",
+              typographyEl.textContent
+            );
           this.setMaxLines(typographyEl, cellContainer);
           this.removeVerticalAlignment(tableCell);
           this.removeVerticalAlignment(cellContainer);
@@ -379,21 +397,7 @@ export class DataTable {
       //   }
       //   if (typographyEl.scrollHeight < parentHeight && parentIsTooltip) {
       //     parentEl.replaceWith(...Array.from(parentEl.childNodes)); // Removes tooltip
-      //   } else if (
-      //     (typographyEl.scrollHeight > typographyEl.clientHeight ||
-      //       (parentHeight && typographyEl.clientHeight > parentHeight)) &&
-      //     !parentDiv.classList.contains("data-type-element")
-      //   ) {
-      //     if (this.truncationPattern === "tooltip") {
-      //       typographyEl.style.webkitLineClamp = `${maxLines}`;
-      //       if (!parentIsTooltip) {
-      //         const tooltipEl = document.createElement("ic-tooltip");
-      //         tooltipEl.setAttribute("target", typographyEl.id);
-      //         tooltipEl.setAttribute("label", typographyEl.innerHTML);
-      //         typographyEl.parentNode.replaceChild(tooltipEl, typographyEl);
-      //         tooltipEl.appendChild(typographyEl);
-      //       }
-      //     } else {
+      //   } else {
       //       /**
       //        * The manual height on the div can be removed since the line clamp applied to the ic-typography will perform that function.
       //        * Adding 24 to checkMaxLines ensures an extra line is available for the `See More/See Less` button to move onto.

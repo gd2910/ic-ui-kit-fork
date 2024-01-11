@@ -727,8 +727,8 @@ export const Scrollable = (): HTMLElement => {
   };
   const stickButton = document.createElement("ic-button");
   const unstickButton = document.createElement("ic-button");
-  stickButton.innerHTML = "Stick Header";
-  unstickButton.innerHTML = "Unstick Header";
+  stickButton.textContent = "Stick Header";
+  unstickButton.textContent = "Unstick Header";
   stickButton.addEventListener("click", () => setStickyHeaders(true));
   unstickButton.addEventListener("click", () => setStickyHeaders(false));
 
@@ -809,7 +809,7 @@ export const EmptySlotted = (): HTMLIcDataTableElement => {
   emptyState.setAttribute("slot", "empty-state");
 
   const button = document.createElement("ic-button");
-  button.innerHTML = "Retry";
+  button.textContent = "Retry";
   button.setAttribute("slot", "actions");
 
   emptyState.appendChild(button);
@@ -846,7 +846,7 @@ export const CustomRowHeights = (): HTMLElement => {
 
   const resetButton = document.createElement("ic-button");
   resetButton.addEventListener("click", () => dataTable.resetRowHeights());
-  resetButton.innerHTML = "Reset";
+  resetButton.textContent = "Reset";
 
   const setButton = document.createElement("ic-button");
   setButton.addEventListener("click", () => {
@@ -854,7 +854,7 @@ export const CustomRowHeights = (): HTMLElement => {
     dataTable.variableRowHeight = ({ name, age }) =>
       name === "John Smith" || age === 41 ? 200 : null;
   });
-  setButton.innerHTML = "Set";
+  setButton.textContent = "Set";
 
   const buttonWrapper = document.createElement("div");
   buttonWrapper.style["display"] = "flex";
@@ -877,7 +877,7 @@ export const TruncationShowHide = (): HTMLElement => {
 
   const resetButton = document.createElement("ic-button");
   resetButton.addEventListener("click", () => dataTable.resetRowHeights());
-  resetButton.innerHTML = "Reset";
+  resetButton.textContent = "Reset";
 
   const setButton = document.createElement("ic-button");
   setButton.addEventListener("click", () => {
@@ -885,7 +885,7 @@ export const TruncationShowHide = (): HTMLElement => {
     dataTable.variableRowHeight = ({ name, age }) =>
       name === "John Smith" || age === 41 ? 200 : null;
   });
-  setButton.innerHTML = "Set";
+  setButton.textContent = "Set";
 
   const buttonWrapper = document.createElement("div");
   buttonWrapper.style["display"] = "flex";
@@ -908,7 +908,7 @@ export const TruncationTooltip = (): HTMLElement => {
 
   const resetButton = document.createElement("ic-button");
   resetButton.addEventListener("click", () => dataTable.resetRowHeights());
-  resetButton.innerHTML = "Reset";
+  resetButton.textContent = "Reset";
 
   const setButton = document.createElement("ic-button");
   setButton.addEventListener("click", () => {
@@ -916,7 +916,7 @@ export const TruncationTooltip = (): HTMLElement => {
     dataTable.variableRowHeight = ({ name, age }) =>
       name === "John Smith" || age === 41 ? 200 : null;
   });
-  setButton.innerHTML = "Set";
+  setButton.textContent = "Set";
 
   const buttonWrapper = document.createElement("div");
   buttonWrapper.style["display"] = "flex";
@@ -945,20 +945,20 @@ export const CustomTitleBar = (): HTMLIcDataTableElement => {
   const customDescription = document.createElement("ic-typography");
   customDescription.setAttribute("variant", "body");
   customDescription.setAttribute("slot", "description");
-  customDescription.innerHTML =
+  customDescription.textContent =
     '<p>This is some text and <ic-link href="/" inline="">this is an inline link</ic-link> within the text.</p>';
 
   const primaryButton = document.createElement("ic-button");
   primaryButton.setAttribute("slot", "primary-action");
   primaryButton.setAttribute("size", "small");
-  primaryButton.innerHTML = "Primary";
+  primaryButton.textContent = "Primary";
 
   const customButtons = [1, 2, 3].map((x) => {
     const customButton = document.createElement("ic-button");
     customButton.setAttribute("slot", "custom-actions");
     customButton.setAttribute("variant", "icon");
     customButton.setAttribute("aria-label", `Icon ${x}`);
-    customButton.innerHTML =
+    customButton.textContent =
       '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm56-97h489L578-473 446-302l-93-127-117 152Zm-56 97v-600 600Z" /></svg>';
     return customButton;
   });
