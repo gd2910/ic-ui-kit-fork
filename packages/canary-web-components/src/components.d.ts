@@ -370,6 +370,30 @@ declare global {
         prototype: HTMLIcDataTableElement;
         new (): HTMLIcDataTableElement;
     };
+    interface HTMLIcMenuWithMultiElementEventMap {
+        "menuKeyPress": { isNavKey: boolean; key: string };
+        "menuOptionId": IcMenuOptionIdEventDetail;
+        "menuOptionSelect": IcOptionSelectEventDetail;
+        "menuOptionSelectAll": { select: boolean };
+        "menuStateChange": IcMenuChangeEventDetail;
+        "retryButtonClicked": IcValueEventDetail;
+        "timeoutBlur": { ev: FocusEvent };
+        "ungroupedOptionsSet": { options: IcMenuOption[] };
+    }
+    interface HTMLIcMenuWithMultiElement extends Components.IcMenuWithMulti, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcMenuWithMultiElementEventMap>(type: K, listener: (this: HTMLIcMenuWithMultiElement, ev: IcMenuWithMultiCustomEvent<HTMLIcMenuWithMultiElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcMenuWithMultiElementEventMap>(type: K, listener: (this: HTMLIcMenuWithMultiElement, ev: IcMenuWithMultiCustomEvent<HTMLIcMenuWithMultiElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLIcMenuWithMultiElement: {
+        prototype: HTMLIcMenuWithMultiElement;
+        new (): HTMLIcMenuWithMultiElement;
+    };
     interface HTMLIcPaginationBarElementEventMap {
         "icPageChange": { value: number };
         "icItemsPerPageChange": { value: number };
@@ -388,7 +412,25 @@ declare global {
         prototype: HTMLIcPaginationBarElement;
         new (): HTMLIcPaginationBarElement;
     };
+    interface HTMLIcSelectWithMultiElementEventMap {
+        "icBlur": void;
+        "icChange": IcValueEventDetail;
+        "icClear": void;
+        "icFocus": void;
+        "icInput": IcValueEventDetail;
+        "icOptionSelect": IcOptionSelectEventDetail;
+        "icOptionDeselect": IcOptionSelectEventDetail;
+        "icRetryLoad": IcValueEventDetail;
+    }
     interface HTMLIcSelectWithMultiElement extends Components.IcSelectWithMulti, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcSelectWithMultiElementEventMap>(type: K, listener: (this: HTMLIcSelectWithMultiElement, ev: IcSelectWithMultiCustomEvent<HTMLIcSelectWithMultiElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcSelectWithMultiElementEventMap>(type: K, listener: (this: HTMLIcSelectWithMultiElement, ev: IcSelectWithMultiCustomEvent<HTMLIcSelectWithMultiElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcSelectWithMultiElement: {
         prototype: HTMLIcSelectWithMultiElement;
