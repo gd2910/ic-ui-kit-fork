@@ -286,6 +286,7 @@ export class Menu {
         ) as HTMLElement;
 
         if (highlightedEl) {
+          this.menu.setAttribute("aria-activedescendant", highlightedEl.id);
           highlightedEl.focus();
         }
       } else if (
@@ -962,6 +963,8 @@ export class Menu {
       ) {
         menu.scrollTop = selectedOption.offsetTop;
       }
+      // 'aria-activedescendant affects focus - https://www.w3.org/TR/2017/WD-wai-aria-practices-1.1-20170628/#kbd_focus_activedescendant
+      this.menu.setAttribute("aria-activedescendant", selectedOption.id);
       selectedOption.focus();
     }
   };
@@ -1051,7 +1054,6 @@ export class Menu {
     parentOption?: IcMenuOption
   ): HTMLLIElement => {
     const {
-      open,
       keyboardNav,
       isManualMode,
       initialOptionsListRender,
@@ -1077,13 +1079,7 @@ export class Menu {
           timeout: option.timedOut,
         }}
         role="option"
-        tabindex={
-          open &&
-          (selected || option[this.valueField] === optionHighlighted) &&
-          keyboardNav
-            ? "0"
-            : "-1"
-        }
+        tabindex="0"
         aria-label={this.getOptionAriaLabel(option, parentOption)}
         aria-selected={selected ? "true" : "false"}
         aria-disabled={option.disabled ? "true" : "false"}
@@ -1142,7 +1138,6 @@ export class Menu {
       small,
       open,
       inputEl,
-      keyboardNav,
     } = this;
 
     const selectAllButtonText = `${
@@ -1173,9 +1168,7 @@ export class Menu {
             role="listbox"
             aria-label={`${inputLabel} pop-up`}
             aria-multiselectable={this.isMultiSelect ? "true" : "false"}
-            tabindex={
-              open && !keyboardNav && inputEl?.tagName !== "INPUT" ? "0" : "-1"
-            }
+            tabindex="0"
             ref={(el) => (this.menu = el)}
             onKeyDown={this.handleMenuKeyDown}
             onKeyUp={this.handleMenuKeyUp}
