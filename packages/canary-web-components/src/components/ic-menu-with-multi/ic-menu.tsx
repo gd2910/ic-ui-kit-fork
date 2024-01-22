@@ -38,6 +38,7 @@ import { IcSearchBarSearchModes } from "@ukic/web-components/dist/types/componen
 })
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class Menu {
+  private activeDescendantAttr = "aria-activedescendant"; // Prevent duplicate literal string lint error
   private clearButtonId = "clear-button"; // Prevent duplicate literal string lint error
   private disabledOptionSelected: boolean = false;
   private hasPreviouslyBlurred: boolean = false;
@@ -170,7 +171,7 @@ export class Menu {
   @Prop() valueField: string = "value";
 
   /**
-   * @internal Emitted when key is pressed while menu is open
+   * @internal Emitted when key is pressed while menu is open.
    */
   @Event() menuKeyPress: EventEmitter<{ isNavKey: boolean; key: string }>;
 
@@ -286,7 +287,7 @@ export class Menu {
         ) as HTMLElement;
 
         if (highlightedEl) {
-          this.menu.setAttribute("aria-activedescendant", highlightedEl.id);
+          this.menu.setAttribute(this.activeDescendantAttr, highlightedEl.id);
           highlightedEl.focus();
         }
       } else if (
@@ -356,7 +357,7 @@ export class Menu {
    * boundary behaviour so sticking with PopperJS.
    */
   @Method()
-  async initPopperJs(anchor: HTMLElement) {
+  async initPopperJs(anchor: HTMLElement): Promise<void> {
     // Placements set to "-start" to accommodate for custom menu width - menu should always be aligned to the left
     this.popperInstance = createPopper(anchor, this.el, {
       placement: "bottom-start",
@@ -768,6 +769,10 @@ export class Menu {
 
   private handleBlur = (event: FocusEvent): void => {
     if (event.relatedTarget !== this.inputEl) {
+      if (event.relatedTarget === this.selectAllButton) {
+        this.menu.removeAttribute(this.activeDescendantAttr);
+      }
+
       if (
         !(
           this.menu.contains(event.relatedTarget as HTMLElement) ||
@@ -775,10 +780,12 @@ export class Menu {
         )
       ) {
         this.handleMenuChange(false, this.hasPreviouslyBlurred);
+        this.menu.removeAttribute(this.activeDescendantAttr);
       }
     } else {
       this.handleMenuChange(false);
       this.preventClickOpen = true;
+      this.menu.removeAttribute(this.activeDescendantAttr);
     }
     if (!this.isSearchBar) this.hasPreviouslyBlurred = !!event.relatedTarget;
   };
@@ -964,7 +971,7 @@ export class Menu {
         menu.scrollTop = selectedOption.offsetTop;
       }
       // 'aria-activedescendant affects focus - https://www.w3.org/TR/2017/WD-wai-aria-practices-1.1-20170628/#kbd_focus_activedescendant
-      this.menu.setAttribute("aria-activedescendant", selectedOption.id);
+      this.menu.setAttribute(this.activeDescendantAttr, selectedOption.id);
       selectedOption.focus();
     }
   };
@@ -1054,6 +1061,7 @@ export class Menu {
     parentOption?: IcMenuOption
   ): HTMLLIElement => {
     const {
+      open,
       keyboardNav,
       isManualMode,
       initialOptionsListRender,
@@ -1079,9 +1087,15 @@ export class Menu {
           timeout: option.timedOut,
         }}
         role="option"
-        tabindex="0"
+        tabindex={
+          open &&
+          (selected || option[this.valueField] === optionHighlighted) &&
+          keyboardNav
+            ? "0"
+            : "-1"
+        }
         aria-label={this.getOptionAriaLabel(option, parentOption)}
-        aria-selected={selected ? "true" : "false"}
+        aria-selected={option.disabled ? null : selected ? "true" : "false"}
         aria-disabled={option.disabled ? "true" : "false"}
         onClick={!option.timedOut && !option.loading && this.handleOptionClick}
         onBlur={this.handleBlur}

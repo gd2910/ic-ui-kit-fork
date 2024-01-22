@@ -318,6 +318,7 @@ export class Select {
     if (this.value !== this.currValue) {
       if (this.value && this.multiple) {
         this.currValue = this.getValueSortedByOptions(this.value as string[]);
+        this.updateMultiSelectedCountAriaLive();
       } else {
         this.currValue = this.value;
       }
@@ -1001,6 +1002,21 @@ export class Select {
     }, 800);
   }
 
+  private updateMultiSelectedCountAriaLive = (): void => {
+    const multiSelectSelectedCountEl = this.el.shadowRoot.querySelector(
+      ".multi-select-selected-count"
+    ) as HTMLDivElement;
+
+    const selectedCount = `${this.currValue?.length} of ${this.ungroupedOptions.length} selected`;
+
+    if (
+      multiSelectSelectedCountEl &&
+      multiSelectSelectedCountEl.innerText !== selectedCount
+    ) {
+      multiSelectSelectedCountEl.innerText = selectedCount;
+    }
+  };
+
   private getDefaultValue = (value: string): string | null =>
     this.getLabelFromValue(value) || value || null;
 
@@ -1406,9 +1422,7 @@ export class Select {
               aria-live="polite"
               role="status"
               class="multi-select-selected-count"
-            >
-              {currValue && optionsSelectedCount}
-            </div>
+            ></div>
           )}
           {hasValidationStatus(this.validationStatus, this.disabled) && (
             <ic-input-validation
