@@ -970,7 +970,7 @@ export class Menu {
       ) {
         menu.scrollTop = selectedOption.offsetTop;
       }
-      // 'aria-activedescendant affects focus - https://www.w3.org/TR/2017/WD-wai-aria-practices-1.1-20170628/#kbd_focus_activedescendant
+      // 'aria-activedescendant' affects focus - https://www.w3.org/TR/2017/WD-wai-aria-practices-1.1-20170628/#kbd_focus_activedescendant
       this.menu.setAttribute(this.activeDescendantAttr, selectedOption.id);
       selectedOption.focus();
     }
@@ -1152,6 +1152,7 @@ export class Menu {
       small,
       open,
       inputEl,
+      keyboardNav,
     } = this;
 
     const selectAllButtonText = `${
@@ -1182,7 +1183,9 @@ export class Menu {
             role="listbox"
             aria-label={`${inputLabel} pop-up`}
             aria-multiselectable={this.isMultiSelect ? "true" : "false"}
-            tabindex="0"
+            tabindex={
+              open && !keyboardNav && inputEl?.tagName !== "INPUT" ? "0" : "-1"
+            }
             ref={(el) => (this.menu = el)}
             onKeyDown={this.handleMenuKeyDown}
             onKeyUp={this.handleMenuKeyUp}
