@@ -142,7 +142,8 @@
   -webkit-box-orient: vertical;
   line-clamp: var(--truncation-max-lines, initial);
   -webkit-line-clamp: var(--truncation-max-lines, initial);
-  overflow: hidden;
+  /* overflow: hidden; */
+  clip-path: border-box;
 }
 
 .trunc-btn {
@@ -153,6 +154,7 @@
   text-decoration: underline;
   font-weight: var(--ic-font-weight-bold);
   transition: var(--ic-easing-transition-fast);
+  text-align: start;
 }
 
 .trunc-btn:hover,

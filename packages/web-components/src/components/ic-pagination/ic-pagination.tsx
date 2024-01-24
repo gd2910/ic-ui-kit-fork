@@ -274,6 +274,7 @@ export class Pagination {
         disabled={this.currentPage === 1 || this.disabled}
         variant="icon"
         innerHTML={paginationFirstLast}
+        tooltipPlacement="top"
       />
     );
   };
@@ -289,6 +290,7 @@ export class Pagination {
         disabled={this.currentPage === 1 || this.disabled}
         variant="icon"
         innerHTML={paginationNextPrevious}
+        tooltipPlacement="top"
       />
     );
   };
@@ -304,6 +306,7 @@ export class Pagination {
         disabled={this.currentPage === this.pages || this.disabled}
         variant="icon"
         innerHTML={paginationNextPrevious}
+        tooltipPlacement="top"
       />
     );
   };
@@ -319,6 +322,7 @@ export class Pagination {
         disabled={this.currentPage === this.pages || this.disabled}
         variant="icon"
         innerHTML={paginationFirstLast}
+        tooltipPlacement="top"
       />
     );
   };
