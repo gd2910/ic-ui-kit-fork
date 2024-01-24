@@ -64,3 +64,34 @@ export const getSlotContent = (
 
   return null;
 };
+
+/**
+ * Used to inherit global attributes set on the host. Called in componentWillLoad and assigned
+ * to a variable that is later used in the render function.
+ *
+ * This does not need to be reactive as changing attributes on the host element
+ * does not trigger a re-render.
+ */
+export const inheritAttributes = (
+  element: HTMLElement,
+  attributes: string[] = []
+): { [key: string]: unknown } => {
+  const attributeObject: { [key: string]: unknown } = {};
+
+  attributes.forEach((attr) => {
+    if (element.hasAttribute(attr)) {
+      const value = element.getAttribute(attr);
+      if (value !== null) {
+        attributeObject[attr] = element.getAttribute(attr);
+      }
+      element.removeAttribute(attr);
+    }
+  });
+
+  return attributeObject;
+};
+
+export const pxToRem = (px: string, base = 16): string => {
+  const tempPx = parseInt(px);
+  return `${(1 / base) * tempPx}rem`;
+};

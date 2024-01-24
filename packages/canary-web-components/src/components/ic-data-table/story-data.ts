@@ -1,6 +1,11 @@
 import { IcDataTableColumnObject } from "./ic-data-table.types";
 
 /* eslint-disable */
+const name1 = "John Smith";
+const name2 = "Sally Jones";
+const name3 = "Luke Fisher";
+const name4 = "Jane Lock";
+const name5 = "Margaret Hale";
 
 const ROW_HEADER_TITLES = [
   "Employee",
@@ -30,6 +35,7 @@ export const COLS: IcDataTableColumnObject[] = [
     key: "jobTitle",
     title: "Job title",
     dataType: "string",
+    textWrap: true,
   },
   {
     key: "address",
@@ -77,7 +83,7 @@ export const DATA = [
     firstName: "Sarah",
     lastName: "Smith",
     age: 28,
-    jobTitle: "Analyst",
+    jobTitle: "Senior Software Developer, Site Reliability Engineering",
     address: "2 Main Street, Town, Country, Postcode",
   },
   {
@@ -91,7 +97,7 @@ export const DATA = [
     firstName: "Naomi",
     lastName: "Thomas",
     age: 32,
-    jobTitle: "Developer",
+    jobTitle: "Analyst",
     address: "8 Side Street, Town, Country, Postcode",
   },
   {
@@ -100,6 +106,92 @@ export const DATA = [
     age: 18,
     jobTitle: "Junior Developer",
     address: "5 New Street, Town, Country, Postcode",
+  },
+];
+
+export const COLUMNS_NO_TEXT_WRAP: IcDataTableColumnObject[] = [
+  { key: "name", title: "Name", dataType: "string" },
+  { key: "age", title: "Age", dataType: "number" },
+  { key: "department", title: "Department", dataType: "string" },
+  { key: "employeeNumber", title: "Employee Number", dataType: "number" },
+  { key: "jobTitle", title: "Job Title", dataType: "string" },
+];
+export const LONG_DATA_VALUES = [
+  {
+    name: name1,
+    age: 36,
+    department: "Accounts & Finance",
+    employeeNumber: 1,
+    jobTitle: "Senior Financial Operations and Reporting Analyst",
+  },
+  {
+    name: name2,
+    age: 32,
+    department: "Engineering",
+    employeeNumber: 2,
+    jobTitle:
+      "Senior Software Engineer, Site Reliability Engineering (Microsoft Azure)",
+  },
+  {
+    name: "Tim Rayes",
+    age: 41,
+    department: "Sales and Marketing",
+    employeeNumber: 3,
+    jobTitle:
+      "Regional Sales and Marketing Strategy Director (Europe, the Middle East, and Africa)",
+    textWrap: true,
+  },
+  {
+    name: name3,
+    age: "23",
+    department: "Engineering (Mobile App Development)",
+    employeeNumber: 4,
+    jobTitle: "Junior Tester",
+  },
+  {
+    name: name4,
+    age: 34,
+    department: "Engineering",
+    employeeNumber: 5,
+    jobTitle: "Junior Product Manager",
+  },
+  {
+    name: name5,
+    age: 45,
+    department: "HR",
+    employeeNumber: 6,
+    jobTitle: "Junior Human Resource Information Specialist",
+  },
+];
+
+export const LONG_DATA_VALUES_UPDATE = [
+  {
+    name: "Michael Phelps",
+    age: 23,
+    department: "United States",
+    employeeNumber: 1,
+    jobTitle: "Swimmer",
+  },
+  {
+    name: "Natalie Coughlin",
+    age: 25,
+    department: "United States",
+    employeeNumber: 2,
+    jobTitle: "Swimmer",
+  },
+  {
+    name: "Debbie Flood",
+    age: 28,
+    department: "Great Britain",
+    employeeNumber: 3,
+    jobTitle: "7 time Olympic and Commonwealth Champion for Rowing",
+  },
+  {
+    name: "Gillian Charleton",
+    age: "22",
+    department: "Canada",
+    employeeNumber: 4,
+    jobTitle: "Cycling",
   },
 ];
 
@@ -119,7 +211,7 @@ export const DATA_CELL_ALIGNMENT = [
     firstName: "Sarah",
     lastName: "Smith",
     age: 28,
-    jobTitle: "Analyst",
+    jobTitle: "Senior Software Developer, Site Reliability Engineering",
     address: "2 Main Street, Town, Country, Postcode",
   },
   {
@@ -133,7 +225,7 @@ export const DATA_CELL_ALIGNMENT = [
     firstName: "Naomi",
     lastName: "Thomas",
     age: 32,
-    jobTitle: "Developer",
+    jobTitle: "Analyst",
     address: "8 Side Street, Town, Country, Postcode",
   },
   {
@@ -165,7 +257,7 @@ export const ROW_ALIGNMENT = [
     firstName: "Sarah",
     lastName: "Smith",
     age: 28,
-    jobTitle: "Analyst",
+    jobTitle: "Senior Software Developer, Site Reliability Engineering",
     address: "2 Main Street, Town, Country, Postcode",
   },
   {
@@ -185,7 +277,7 @@ export const ROW_ALIGNMENT = [
     firstName: "Naomi",
     lastName: "Thomas",
     age: 32,
-    jobTitle: "Developer",
+    jobTitle: "Analyst",
     address: "8 Side Street, Town, Country, Postcode",
   },
   {
@@ -290,7 +382,7 @@ export const ICON_DATA = [
       icon: '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-481q-66 0-108-42t-42-108q0-66 42-108t108-42q66 0 108 42t42 108q0 66-42 108t-108 42ZM160-160v-94q0-38 19-65t49-41q67-30 128.5-45T480-420q62 0 123 15.5t127.921 44.694q31.301 14.126 50.19 40.966Q800-292 800-254v94H160Zm60-60h520v-34q0-16-9.5-30.5T707-306q-64-31-117-42.5T480-360q-57 0-111 11.5T252-306q-14 7-23 21.5t-9 30.5v34Zm260-321q39 0 64.5-25.5T570-631q0-39-25.5-64.5T480-721q-39 0-64.5 25.5T390-631q0 39 25.5 64.5T480-541Zm0-90Zm0 411Z"/></svg>',
     },
     age: 28,
-    jobTitle: "Analyst",
+    jobTitle: "Senior Software Developer, Site Reliability Engineering",
     address: "2 Main Street, Town, Country, Postcode",
   },
   {
@@ -305,7 +397,7 @@ export const ICON_DATA = [
     lastName: "Thomas",
     age: 32,
     jobTitle: {
-      data: "Developer",
+      data: "Analyst",
       icon: '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-481q-66 0-108-42t-42-108q0-66 42-108t108-42q66 0 108 42t42 108q0 66-42 108t-108 42ZM160-160v-94q0-38 19-65t49-41q67-30 128.5-45T480-420q62 0 123 15.5t127.921 44.694q31.301 14.126 50.19 40.966Q800-292 800-254v94H160Zm60-60h520v-34q0-16-9.5-30.5T707-306q-64-31-117-42.5T480-360q-57 0-111 11.5T252-306q-14 7-23 21.5t-9 30.5v34Zm260-321q39 0 64.5-25.5T570-631q0-39-25.5-64.5T480-721q-39 0-64.5 25.5T390-631q0 39 25.5 64.5T480-541Zm0-90Zm0 411Z"/></svg>',
     },
     address: "8 Side Street, Town, Country, Postcode",
@@ -350,7 +442,7 @@ export const LONG_DATA = [
   },
   {
     employeeNumber: 5,
-    name: "Luke Ashford",
+    name: "Bartholomew Christoper Augustine Zacchaeus Ashford",
     age: 18,
     jobTitle: "Junior Developer",
     address: "5 New Street, Town, Country, Postcode",
@@ -392,7 +484,7 @@ export const LONG_DATA = [
   },
   {
     employeeNumber: 11,
-    name: "Pete Norton",
+    name: "Chrysanthemum Finnleigh Carrington Savannah Norton",
     age: 32,
     jobTitle: "Analyst",
     address: "6 Key Street, Town, County, Postcode",
@@ -420,7 +512,7 @@ export const LONG_DATA = [
   },
   {
     employeeNumber: 15,
-    name: "Mary Lincoln",
+    name: "Bernadette Mariah Genevieve Maddison Lincoln",
     age: 23,
     jobTitle: "Developer",
     address: "10 Main Street, Town, Country, Postcode",
@@ -548,7 +640,7 @@ export const DATA_ELEMENTS = [
     firstName: "Sarah",
     lastName: "Smith",
     age: 28,
-    jobTitle: "Analyst",
+    jobTitle: "Senior Software Developer, Site Reliability Engineering",
     address: "2 Main Street, Town, Country, Postcode",
     actions: `<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>`,
   },
@@ -564,7 +656,7 @@ export const DATA_ELEMENTS = [
     firstName: "Naomi",
     lastName: "Thomas",
     age: 32,
-    jobTitle: "Developer",
+    jobTitle: "Analyst",
     address: "8 Side Street, Town, Country, Postcode",
     actions: `<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>`,
   },
@@ -594,7 +686,7 @@ export const DATA_REACT_ELEMENTS = [
     firstName: "Sarah",
     lastName: "Smith",
     age: 28,
-    jobTitle: "Analyst",
+    jobTitle: "Senior Software Developer, Site Reliability Engineering",
     address: "2 Main Street, Town, Country, Postcode",
     actions: `<IcButton variant='destructive' onClick={this.closest("tr").remove()}>Delete</IcButton>`,
   },
@@ -610,7 +702,7 @@ export const DATA_REACT_ELEMENTS = [
     firstName: "Naomi",
     lastName: "Thomas",
     age: 32,
-    jobTitle: "Developer",
+    jobTitle: "Analyst",
     address: "8 Side Street, Town, Country, Postcode",
     actions: `<IcButton variant='destructive' onClick={this.closest("tr").remove()}>Delete</IcButton>`,
   },
@@ -712,6 +804,7 @@ export const SortOptions = (): HTMLIcDataTableElement => {
 export const Pagination = (): HTMLIcDataTableElement => {
   const dataTable = createDataTableElement("Pagination", LONG_COLS, LONG_DATA);
   dataTable.setAttribute("show-pagination", "true");
+  dataTable.setAttribute("truncation-pattern", "tooltip");
   dataTable.paginationOptions = {
     itemsPerPage: [
       { label: "5", value: "5" },
@@ -792,10 +885,14 @@ export const CustomIcons = (): HTMLIcDataTableElement =>
   createDataTableElement("Custom icons", ICON_COLS, ICON_DATA);
 
 export const CustomRowHeights = (): HTMLElement => {
-  const dataTable = createDataTableElement("Custom Row Heights", COLS, DATA);
+  const dataTable = createDataTableElement(
+    "Custom Row Heights",
+    COLUMNS_NO_TEXT_WRAP,
+    LONG_DATA_VALUES
+  );
   dataTable.globalRowHeight = 80;
-  dataTable.variableRowHeight = ({ firstName, lastName }) =>
-    firstName === "Joe" || lastName === "Owens" ? 200 : null;
+  dataTable.variableRowHeight = ({ name, age }) =>
+    name === "John Smith" || age === 41 ? 200 : null;
 
   const resetButton = document.createElement("ic-button");
   resetButton.addEventListener("click", () => dataTable.resetRowHeights());
@@ -804,8 +901,88 @@ export const CustomRowHeights = (): HTMLElement => {
   const setButton = document.createElement("ic-button");
   setButton.addEventListener("click", () => {
     dataTable.globalRowHeight = 80;
-    dataTable.variableRowHeight = ({ firstName, lastName }) =>
-      firstName === "Joe" || lastName === "Owens" ? 200 : null;
+    dataTable.variableRowHeight = ({ name, age }) =>
+      name === "John Smith" || age === 41 ? 200 : null;
+  });
+  setButton.innerHTML = "Set";
+
+  const buttonWrapper = document.createElement("div");
+  buttonWrapper.style["display"] = "flex";
+  buttonWrapper.style["paddingTop"] = "10px";
+  buttonWrapper.style["gap"] = "8px";
+  buttonWrapper.insertAdjacentElement("afterbegin", setButton);
+  buttonWrapper.insertAdjacentElement("beforeend", resetButton);
+
+  const wrapper = document.createElement("div");
+  wrapper.insertAdjacentElement("afterbegin", dataTable);
+  wrapper.insertAdjacentElement("beforeend", buttonWrapper);
+  return wrapper;
+};
+
+// export const TruncationShowHide = (): HTMLIcDataTableElement => {
+//   const dataTable = CustomRowHeights().querySelector("ic-data-table");
+//   dataTable.globalRowHeight = 40;
+//   dataTable.variableRowHeight = null;
+//   dataTable.setAttribute("truncation-pattern", "showHide");
+
+//   return dataTable;
+// };
+
+export const TruncationShowHide = (): HTMLElement => {
+  const dataTable = CustomRowHeights().querySelector("ic-data-table");
+  dataTable.globalRowHeight = 40;
+  dataTable.variableRowHeight = null;
+  dataTable.setAttribute("truncation-pattern", "showHide");
+
+  const resetButton = document.createElement("ic-button");
+  resetButton.addEventListener("click", () => dataTable.resetRowHeights());
+  resetButton.innerHTML = "Reset";
+
+  const setButton = document.createElement("ic-button");
+  setButton.addEventListener("click", () => {
+    dataTable.globalRowHeight = 80;
+    dataTable.variableRowHeight = ({ name, age }) =>
+      name === "John Smith" || age === 41 ? 200 : null;
+  });
+  setButton.innerHTML = "Set";
+
+  const updateDataButton = document.createElement("ic-button");
+  updateDataButton.addEventListener("click", () => {
+    setTimeout(() => {
+      dataTable.data = LONG_DATA_VALUES_UPDATE;
+    }, 500);
+  });
+  updateDataButton.innerHTML = "Update data";
+
+  const buttonWrapper = document.createElement("div");
+  buttonWrapper.style["display"] = "flex";
+  buttonWrapper.style["paddingTop"] = "10px";
+  buttonWrapper.style["gap"] = "8px";
+  buttonWrapper.insertAdjacentElement("afterbegin", setButton);
+  buttonWrapper.insertAdjacentElement("beforeend", resetButton);
+  buttonWrapper.insertAdjacentElement("beforeend", updateDataButton);
+
+  const wrapper = document.createElement("div");
+  wrapper.insertAdjacentElement("afterbegin", dataTable);
+  wrapper.insertAdjacentElement("beforeend", buttonWrapper);
+  return wrapper;
+};
+
+export const TruncationTooltip = (): HTMLElement => {
+  const dataTable = CustomRowHeights().querySelector("ic-data-table");
+  dataTable.globalRowHeight = 40;
+  dataTable.variableRowHeight = null;
+  dataTable.setAttribute("truncation-pattern", "tooltip");
+
+  const resetButton = document.createElement("ic-button");
+  resetButton.addEventListener("click", () => dataTable.resetRowHeights());
+  resetButton.innerHTML = "Reset";
+
+  const setButton = document.createElement("ic-button");
+  setButton.addEventListener("click", () => {
+    dataTable.globalRowHeight = 80;
+    dataTable.variableRowHeight = ({ name, age }) =>
+      name === "John Smith" || age === 41 ? 200 : null;
   });
   setButton.innerHTML = "Set";
 
