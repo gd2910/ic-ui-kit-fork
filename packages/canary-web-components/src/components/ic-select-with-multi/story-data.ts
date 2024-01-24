@@ -252,7 +252,7 @@ export const Validation = (): HTMLDivElement => {
 export const LoadingWithError = (): HTMLDivElement => {
   const multiSelect = createMultiSelectElement();
   multiSelect.setAttribute("loading", "true");
-  multiSelect.setAttribute("timeout", "1000");
+  multiSelect.setAttribute("timeout", "3000");
 
   multiSelect.addEventListener("icRetryLoad", function () {
     multiSelect.setAttribute("loading", "true");

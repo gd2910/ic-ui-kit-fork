@@ -515,7 +515,7 @@ export const LoadingWithError = () => {
       label="What are your favourite types of coffee?"
       options={options}
       loading
-      timeout="1000"
+      timeout="3000"
       onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
       onIcRetryLoad={(event) => selectEl.current.loading = true}
     />
