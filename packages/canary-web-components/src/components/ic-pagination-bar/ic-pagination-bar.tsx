@@ -486,7 +486,6 @@ export class PaginationBar {
                 label={this.inputError}
                 target={`#${PAGE_INPUT_FIELD_ID}`}
                 disableHover
-                disableClick
               >
                 <ic-text-field
                   type="number"
@@ -500,7 +499,7 @@ export class PaginationBar {
                   onInput={() => this.handleInputChange()}
                   max={this.totalPages}
                   min="1"
-                  validationInlineInternal
+                  validationInline
                   onBlur={() => this.handleBlur()}
                   onFocus={() => this.handleFocus()}
                 ></ic-text-field>

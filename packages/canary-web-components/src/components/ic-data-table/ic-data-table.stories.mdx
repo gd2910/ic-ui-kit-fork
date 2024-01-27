@@ -3,7 +3,7 @@ import {
   Story,
   Canvas,
   ArgsTable,
-  Description,
+  Markdown,
 } from "@storybook/addon-docs";
 import {
   COLS,
@@ -24,15 +24,9 @@ import {
 } from "./story-data";
 import readme from "./readme.md";
 
-<Meta
-  title="Web Components/Data Table"
-  component="ic-data-table"
-  parameters={{
-    componentAPI: {
-      data: readme,
-    },
-  }}
-/>
+<Meta title="Web Components/Data Table" component="ic-data-table" />
+
+<Markdown>{readme}</Markdown>
 
 # [Canary]: Data Table
 
@@ -43,7 +37,7 @@ There are two required props for data table:
 - Caption: `string`
 - Columns: `IcDataTableColumnObject[]`
 
-Click the 'Component API' tab to view all the available props, events and slots for data tables.
+At the top of the docs page, there are the available props, events and slots for data tables.
 
 To use the data table component, import `@ukic/canary-web-components` into your application.
 
