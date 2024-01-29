@@ -3,7 +3,7 @@ import {
   Story,
   Canvas,
   ArgsTable,
-  Description,
+  Markdown
 } from "@storybook/addon-docs";
 import { IcDataTable } from "../components";
 import { IcButton } from '@ukic/react';
@@ -25,12 +25,9 @@ import {
 <Meta
   title="React Components/Data Table"
   component={IcDataTable}
-  parameters={{
-    componentAPI: {
-      data: readme,
-    },
-  }}
 />
+
+<Markdown>{readme}</Markdown>
 
 # [Canary]: Data Table
 
@@ -41,7 +38,7 @@ There are two required props for data table:
 - Caption: `string`
 - Columns: `IcDataTableColumnObject[]`
 
-Click the 'Component API' tab to view all the available props, events and slots for data tables.
+At the top of the docs page, there are the available props, events and slots for data tables.
 
 To use the data table component, import `@ukic/canary-react` into your application.
 
