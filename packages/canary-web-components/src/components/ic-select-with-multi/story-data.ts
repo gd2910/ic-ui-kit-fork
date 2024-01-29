@@ -165,7 +165,7 @@ export const WithDescriptions = (): HTMLDivElement => {
 
 export const HelperText = (): HTMLDivElement => {
   const multiSelect = createMultiSelectElement();
-  multiSelect.setAttribute("helper-text", "Select one option from the list");
+  multiSelect.setAttribute("helper-text", "Select some options from the list");
   return createContainer([multiSelect], "450px");
 };
 

@@ -523,7 +523,9 @@ export class Menu {
     options: IcMenuOption[],
     highlightedOptionIndex: number
   ) => {
-    this.keyboardNav = true;
+    if (!this.isLoading && !this.hasTimedOut) {
+      this.keyboardNav = true;
+    }
 
     const isOpen: boolean =
       this.isSearchBar || this.isSearchableSelect || this.open;
@@ -682,19 +684,18 @@ export class Menu {
           if (this.isSearchBar) {
             this.keyboardNav = true;
           }
-          if (
-            this.open &&
-            this.isMultiSelect &&
-            !event.shiftKey &&
-            this.selectAllButton
-          ) {
-            event.preventDefault();
-            this.selectAllButton.focus(); // Move focus to select all button instead of focused option
-            this.preventMenuFocus = true;
-            this.preventClickOpen = true;
-            this.optionHighlighted = undefined; // Stop any option focus states showing when focus moved to select all button
+          if (this.isMultiSelect) {
+            if (this.open && !event.shiftKey && this.selectAllButton) {
+              event.preventDefault();
+              this.selectAllButton.focus(); // Move focus to select all button instead of focused option
+              this.preventMenuFocus = true;
+              this.preventClickOpen = true;
+              this.optionHighlighted = undefined; // Stop any option focus states showing when focus moved to select all button
+            }
+          } else {
+            this.preventIncorrectTabOrder = true;
           }
-          this.preventIncorrectTabOrder = true;
+
           break;
         case "Backspace":
           if (this.isSearchBar) {
