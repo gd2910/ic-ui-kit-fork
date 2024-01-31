@@ -1096,7 +1096,7 @@ export class Menu {
             : "-1"
         }
         aria-label={this.getOptionAriaLabel(option, parentOption)}
-        aria-selected={option.disabled ? null : selected ? "true" : "false"}
+        aria-selected={selected ? "true" : "false"}
         aria-disabled={option.disabled ? "true" : "false"}
         onClick={!option.timedOut && !option.loading && this.handleOptionClick}
         onBlur={this.handleBlur}

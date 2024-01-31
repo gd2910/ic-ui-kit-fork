@@ -1007,7 +1007,19 @@ export class Select {
       ".multi-select-selected-count"
     ) as HTMLDivElement;
 
-    const selectedCount = `${this.currValue?.length} of ${this.ungroupedOptions.length} selected`;
+    const options = [];
+
+    if (this.options.length > 0 && this.options.map) {
+      this.options.map((option) => {
+        if (option.children) {
+          option.children.map((option) => options.push(option));
+        } else {
+          options.push(option);
+        }
+      });
+    }
+
+    const selectedCount = `${this.currValue?.length} of ${options.length} selected`;
 
     if (
       multiSelectSelectedCountEl &&
