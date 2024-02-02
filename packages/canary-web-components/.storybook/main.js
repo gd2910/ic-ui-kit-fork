@@ -14,15 +14,13 @@ module.exports = {
     "@storybook/addon-postcss",
     "@storybook/addon-a11y",
     "@storybook/addon-docs",
-    "@storybook/addon-mdx-gfm"
+    "@storybook/addon-mdx-gfm",
+    "./addon-tab/register"
   ],
 
   "framework": {
     name: "@storybook/web-components-webpack5",
     options: {}
   },
-
-  docs: {
-    autodocs: true
-  }
+  
 }
