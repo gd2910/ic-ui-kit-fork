@@ -13,15 +13,12 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/addon-postcss",
     "@storybook/addon-a11y",
-    "@storybook/addon-mdx-gfm"
+    "@storybook/addon-mdx-gfm",
+    "./addon-tab/register"
   ],
 
   "framework": {
     name: "@storybook/react-webpack5",
     options: {}
-  },
-
-  docs: {
-    autodocs: true
   }
 }
