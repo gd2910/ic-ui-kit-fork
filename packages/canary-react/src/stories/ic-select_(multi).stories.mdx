@@ -12,11 +12,10 @@ import {
   OPTIONS_WITH_DISABLED,
   GROUPED_OPTIONS,
   OPTIONS_WITH_RECOMMENDED,
-  MANY_OPTIONS,
 } from "../../../canary-web-components/src/components/ic-select-with-multi/story-data";
 
 <Meta
-  title="React Components/Select/Multi"
+  title="React Components/Multi-Select"
   component={IcSelectWithMulti}
   parameters={{
     componentAPI: {
@@ -25,7 +24,7 @@ import {
   }}
 />
 
-# [Canary]: Multi-select
+# [Canary]: Multi-Select
 
 Use the multi-select component to allow users to select one or more values from a list of options.
 
@@ -35,7 +34,7 @@ There is one required prop for the multi-select:
 
 Click the 'Component API' tab to view all the available props, events and slots for the multi-select.
 
-To use the multi-select component, import `@ukic/canary-web-components` into your application.
+To use the multi-select component, import `@ukic/canary-react` into your application.
 
 The component tag name for the multi-select is `IcSelectWithMulti`. 
 Even though it is a variant of the `IcSelect` component (which includes the single and searchable selects), this different tag name is necessary because of the need to keep the multi-select functionality separate while it is experimental (in a canary release).
@@ -548,14 +547,15 @@ This will display an asterisk next to the label and apply the `aria-required` at
 
 <Canvas withSource="none">
   <Story name="Required">
-  
-    <IcSelectWithMulti
-      label="What are your favourite types of coffee?"
-      options={OPTIONS}
-      multiple
-      required
-      onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-    />
+    <div style={{ height: "430px" }}>
+      <IcSelectWithMulti
+        label="What are your favourite types of coffee?"
+        options={OPTIONS}
+        multiple
+        required
+        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+      />
+    </div>
   </Story>
 </Canvas>
 
@@ -894,20 +894,3 @@ const MultiSelect = () => {
 
 export default MultiSelect;
 ```
-
-### Scroll behaviour
-
-**Will remove before the canary release as it's mainly for review purposes i.e. doesn't demonstrate the behaviour of a prop.**
-
-<Canvas withSource="none">
-  <Story name="Scroll Behaviour">
-    <div style={{ height: "480px" }}>
-      <IcSelectWithMulti
-        label="What are your favourite types of coffee?"
-        options={MANY_OPTIONS}
-        multiple
-        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-      ></IcSelectWithMulti>
-    </div>
-  </Story>
-</Canvas>
