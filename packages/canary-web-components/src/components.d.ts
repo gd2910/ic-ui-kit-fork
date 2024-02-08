@@ -202,7 +202,7 @@ export namespace Components {
     }
     interface IcSelectWithMulti {
         /**
-          * @deprecated This prop should not be used anymore.
+          * **[DEPRECATED]** This prop should not be used anymore.
          */
         "charactersUntilSuggestions"?: number;
         /**
@@ -330,7 +330,7 @@ export namespace Components {
          */
         "size"?: IcSizes1;
         /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
+          * **[DEPRECATED]** This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small"?: boolean;
         /**
@@ -636,7 +636,7 @@ declare namespace LocalJSX {
     }
     interface IcSelectWithMulti {
         /**
-          * @deprecated This prop should not be used anymore.
+          * **[DEPRECATED]** This prop should not be used anymore.
          */
         "charactersUntilSuggestions"?: number;
         /**
@@ -792,7 +792,7 @@ declare namespace LocalJSX {
          */
         "size"?: IcSizes1;
         /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
+          * **[DEPRECATED]** This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small"?: boolean;
         /**
