@@ -1043,7 +1043,7 @@ export namespace Components {
         /**
           * The size of the menu component.
          */
-        "size"?: IcSizesNoLarge;
+        "size"?: IcSizes;
         /**
           * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
@@ -1722,7 +1722,7 @@ export namespace Components {
         /**
           * The size of the select component.
          */
-        "size"?: IcSizesNoLarge;
+        "size"?: IcSizes;
         /**
           * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
@@ -4226,7 +4226,7 @@ declare namespace LocalJSX {
         /**
           * The size of the menu component.
          */
-        "size"?: IcSizesNoLarge;
+        "size"?: IcSizes;
         /**
           * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
@@ -4982,7 +4982,7 @@ declare namespace LocalJSX {
         /**
           * The size of the select component.
          */
-        "size"?: IcSizesNoLarge;
+        "size"?: IcSizes;
         /**
           * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
