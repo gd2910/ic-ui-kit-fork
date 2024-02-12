@@ -39,6 +39,7 @@ import { IcSearchBarSearchModes } from "../ic-search-bar/ic-search-bar.types";
 })
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class Menu {
+  private activeDescendantAttr = "aria-activedescendant"; // Prevent duplicate literal string lint error
   private clearButtonId = "clear-button"; // Prevent duplicate literal string lint error
   private disabledOptionSelected: boolean = false;
   private hasPreviouslyBlurred: boolean = false;
@@ -171,7 +172,7 @@ export class Menu {
   @Prop() valueField: string = "value";
 
   /**
-   * @internal Emitted when key is pressed while menu is open
+   * @internal Emitted when key is pressed while menu is open.
    */
   @Event() menuKeyPress: EventEmitter<{ isNavKey: boolean; key: string }>;
 
@@ -287,6 +288,7 @@ export class Menu {
         ) as HTMLElement;
 
         if (highlightedEl) {
+          this.menu.setAttribute(this.activeDescendantAttr, highlightedEl.id);
           highlightedEl.focus();
         }
       } else if (
@@ -765,6 +767,10 @@ export class Menu {
 
   private handleBlur = (event: FocusEvent): void => {
     if (event.relatedTarget !== this.inputEl) {
+      if (event.relatedTarget === this.selectAllButton) {
+        this.menu.removeAttribute(this.activeDescendantAttr);
+      }
+
       if (
         !(
           this.menu.contains(event.relatedTarget as HTMLElement) ||
@@ -772,10 +778,12 @@ export class Menu {
         )
       ) {
         this.handleMenuChange(false, this.hasPreviouslyBlurred);
+        this.menu.removeAttribute(this.activeDescendantAttr);
       }
     } else {
       this.handleMenuChange(false);
       this.preventClickOpen = true;
+      this.menu.removeAttribute(this.activeDescendantAttr);
     }
     if (!this.isSearchBar) this.hasPreviouslyBlurred = !!event.relatedTarget;
   };
@@ -960,6 +968,9 @@ export class Menu {
       ) {
         menu.scrollTop = selectedOption.offsetTop;
       }
+      // 'aria-activedescendant' affects screen reader focus
+      // https://www.w3.org/TR/2017/WD-wai-aria-practices-1.1-20170628/#kbd_focus_activedescendant
+      this.menu.setAttribute(this.activeDescendantAttr, selectedOption.id);
       selectedOption.focus();
     }
   };
