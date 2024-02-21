@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSizes, IcSizesNoLarge, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
 import { IcBadgePositions, IcBadgeTypes, IcBadgeVariants, IcColor } from "./components/ic-badge/ic-badge.types";
 import { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 import { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
@@ -30,8 +30,9 @@ import { IcStepperAlignment } from "./components/ic-stepper/ic-stepper.types";
 import { IcSwitchChangeEventDetail } from "./components/ic-switch/ic-switch.types";
 import { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-tab/ic-tab.types";
 import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
+import { IcChangeEventDetail as IcChangeEventDetail3 } from "./components/ic-toggle-button-group/ic-toggle-button-group.types";
 import { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
-export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSizes, IcSizesNoLarge, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
 export { IcBadgePositions, IcBadgeTypes, IcBadgeVariants, IcColor } from "./components/ic-badge/ic-badge.types";
 export { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 export { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
@@ -56,6 +57,7 @@ export { IcStepperAlignment } from "./components/ic-stepper/ic-stepper.types";
 export { IcSwitchChangeEventDetail } from "./components/ic-switch/ic-switch.types";
 export { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-tab/ic-tab.types";
 export { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
+export { IcChangeEventDetail as IcChangeEventDetail3 } from "./components/ic-toggle-button-group/ic-toggle-button-group.types";
 export { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
 export namespace Components {
     interface IcAccordion {
@@ -2231,6 +2233,48 @@ export namespace Components {
          */
         "variant": "default" | "icon";
     }
+    interface IcToggleButtonGroup {
+        /**
+          * The accessible label of the toggle button group component to provide context for screen reader users.
+         */
+        "accessibleLabel"?: string;
+        /**
+          * The appearance of the accordion group, e.g dark, or light.
+         */
+        "appearance": IcThemeForeground;
+        /**
+          * If `true`, the toggle button group will be set to the disabled state.
+         */
+        "disabled": boolean;
+        /**
+          * If `true`, the toggle button group will fill the width of the container.
+         */
+        "fullWidth"?: boolean;
+        /**
+          * The placement of the icons in relation to the toggle button labels.
+         */
+        "iconPlacement"?: "left" | "right" | "top";
+        /**
+          * If `true`, the toggle button group will be in loading state.
+         */
+        "loading"?: boolean;
+        /**
+          * If auto, controls are toggled as navigated to. If manual, controls must be actioned to change their toggled state. No effect if selectType is multi.
+         */
+        "selectMethod"?: IcSelectMethodTypes;
+        /**
+          * sets whether a single option can be toggled at a time, or whether multiple options can be toggled. If multi, then select method is always manual.
+         */
+        "selectType"?: IcSelectTypes;
+        /**
+          * The size of the toggle buttons to be displayed. This does not affect the font size of the accessible label.
+         */
+        "size"?: IcSizes;
+        /**
+          * The variant of the toggle button.
+         */
+        "variant": "default" | "icon";
+    }
     interface IcTooltip {
         "disableClick"?: boolean;
         /**
@@ -2433,6 +2477,10 @@ export interface IcToastCustomEvent<T> extends CustomEvent<T> {
 export interface IcToggleButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcToggleButtonElement;
+}
+export interface IcToggleButtonGroupCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcToggleButtonGroupElement;
 }
 export interface IcTopNavigationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -3163,6 +3211,23 @@ declare global {
         prototype: HTMLIcToggleButtonElement;
         new (): HTMLIcToggleButtonElement;
     };
+    interface HTMLIcToggleButtonGroupElementEventMap {
+        "icChange": IcChangeEventDetail3;
+    }
+    interface HTMLIcToggleButtonGroupElement extends Components.IcToggleButtonGroup, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcToggleButtonGroupElementEventMap>(type: K, listener: (this: HTMLIcToggleButtonGroupElement, ev: IcToggleButtonGroupCustomEvent<HTMLIcToggleButtonGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcToggleButtonGroupElementEventMap>(type: K, listener: (this: HTMLIcToggleButtonGroupElement, ev: IcToggleButtonGroupCustomEvent<HTMLIcToggleButtonGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLIcToggleButtonGroupElement: {
+        prototype: HTMLIcToggleButtonGroupElement;
+        new (): HTMLIcToggleButtonGroupElement;
+    };
     interface HTMLIcTooltipElement extends Components.IcTooltip, HTMLStencilElement {
     }
     var HTMLIcTooltipElement: {
@@ -3255,6 +3320,7 @@ declare global {
         "ic-toast": HTMLIcToastElement;
         "ic-toast-region": HTMLIcToastRegionElement;
         "ic-toggle-button": HTMLIcToggleButtonElement;
+        "ic-toggle-button-group": HTMLIcToggleButtonGroupElement;
         "ic-tooltip": HTMLIcTooltipElement;
         "ic-top-navigation": HTMLIcTopNavigationElement;
         "ic-typography": HTMLIcTypographyElement;
@@ -5557,6 +5623,52 @@ declare namespace LocalJSX {
          */
         "variant"?: "default" | "icon";
     }
+    interface IcToggleButtonGroup {
+        /**
+          * The accessible label of the toggle button group component to provide context for screen reader users.
+         */
+        "accessibleLabel"?: string;
+        /**
+          * The appearance of the accordion group, e.g dark, or light.
+         */
+        "appearance"?: IcThemeForeground;
+        /**
+          * If `true`, the toggle button group will be set to the disabled state.
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true`, the toggle button group will fill the width of the container.
+         */
+        "fullWidth"?: boolean;
+        /**
+          * The placement of the icons in relation to the toggle button labels.
+         */
+        "iconPlacement"?: "left" | "right" | "top";
+        /**
+          * If `true`, the toggle button group will be in loading state.
+         */
+        "loading"?: boolean;
+        /**
+          * Emitted when a toggle-button is selected.
+         */
+        "onIcChange"?: (event: IcToggleButtonGroupCustomEvent<IcChangeEventDetail3>) => void;
+        /**
+          * If auto, controls are toggled as navigated to. If manual, controls must be actioned to change their toggled state. No effect if selectType is multi.
+         */
+        "selectMethod"?: IcSelectMethodTypes;
+        /**
+          * sets whether a single option can be toggled at a time, or whether multiple options can be toggled. If multi, then select method is always manual.
+         */
+        "selectType"?: IcSelectTypes;
+        /**
+          * The size of the toggle buttons to be displayed. This does not affect the font size of the accessible label.
+         */
+        "size"?: IcSizes;
+        /**
+          * The variant of the toggle button.
+         */
+        "variant"?: "default" | "icon";
+    }
     interface IcTooltip {
         "disableClick"?: boolean;
         /**
@@ -5708,6 +5820,7 @@ declare namespace LocalJSX {
         "ic-toast": IcToast;
         "ic-toast-region": IcToastRegion;
         "ic-toggle-button": IcToggleButton;
+        "ic-toggle-button-group": IcToggleButtonGroup;
         "ic-tooltip": IcTooltip;
         "ic-top-navigation": IcTopNavigation;
         "ic-typography": IcTypography;
@@ -5777,6 +5890,7 @@ declare module "@stencil/core" {
             "ic-toast": LocalJSX.IcToast & JSXBase.HTMLAttributes<HTMLIcToastElement>;
             "ic-toast-region": LocalJSX.IcToastRegion & JSXBase.HTMLAttributes<HTMLIcToastRegionElement>;
             "ic-toggle-button": LocalJSX.IcToggleButton & JSXBase.HTMLAttributes<HTMLIcToggleButtonElement>;
+            "ic-toggle-button-group": LocalJSX.IcToggleButtonGroup & JSXBase.HTMLAttributes<HTMLIcToggleButtonGroupElement>;
             "ic-tooltip": LocalJSX.IcTooltip & JSXBase.HTMLAttributes<HTMLIcTooltipElement>;
             "ic-top-navigation": LocalJSX.IcTopNavigation & JSXBase.HTMLAttributes<HTMLIcTopNavigationElement>;
             "ic-typography": LocalJSX.IcTypography & JSXBase.HTMLAttributes<HTMLIcTypographyElement>;

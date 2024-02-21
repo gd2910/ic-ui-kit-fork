@@ -4,10 +4,10 @@ import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 
 export const ToggleGroupSingle = (): ReactElement => {
   return (
-    <div style={{ margin: "5rem" }}>
+    <div style={{ margin: "10px  0 0 10px" }}>
       <IcToggleButtonGroup
         selectType="single"
-        onIcToggleChecked={(ev) => console.log(ev)}
+        onIcChange={(ev: Event) => console.log(ev)}
       >
         <IcToggleButton label="toggle"></IcToggleButton>
         <IcToggleButton label="toggle"></IcToggleButton>
@@ -19,10 +19,10 @@ export const ToggleGroupSingle = (): ReactElement => {
 
 export const ToggleGroupMulti = (): ReactElement => {
   return (
-    <div style={{ margin: "5rem" }}>
+    <div style={{ margin: "10px  0 0 10px" }}>
       <IcToggleButtonGroup
         selectType="multi"
-        onIcChange={(ev) => console.log(ev)}
+        onIcChange={(ev: Event) => console.log(ev)}
       >
         <IcToggleButton label="toggle"></IcToggleButton>
         <IcToggleButton label="toggle"></IcToggleButton>
@@ -34,7 +34,7 @@ export const ToggleGroupMulti = (): ReactElement => {
 
 export const ToggleGroupSmall = (): ReactElement => {
   return (
-    <div style={{ margin: "5rem" }}>
+    <div style={{ margin: "10px  0 0 10px" }}>
       <IcToggleButtonGroup size="small">
         <IcToggleButton label="toggle"></IcToggleButton>
         <IcToggleButton label="toggle"></IcToggleButton>
@@ -46,8 +46,8 @@ export const ToggleGroupSmall = (): ReactElement => {
 
 export const ToggleGroupLarge = (): ReactElement => {
   return (
-    <div style={{ margin: "5rem" }}>
-      <IcToggleButtonGroup size="small">
+    <div style={{ margin: "10px  0 0 10px" }}>
+      <IcToggleButtonGroup size="large">
         <IcToggleButton label="toggle"></IcToggleButton>
         <IcToggleButton label="toggle"></IcToggleButton>
         <IcToggleButton label="toggle"></IcToggleButton>
@@ -57,7 +57,7 @@ export const ToggleGroupLarge = (): ReactElement => {
 };
 export const ToggleGroupLight = (): ReactElement => {
   return (
-    <div style={{ margin: "5rem" }}>
+    <div style={{ margin: "10px  0 0 10px" }}>
       <IcToggleButtonGroup appearance="light">
         <IcToggleButton label="toggle"></IcToggleButton>
         <IcToggleButton label="toggle"></IcToggleButton>
@@ -69,7 +69,7 @@ export const ToggleGroupLight = (): ReactElement => {
 
 export const ToggleGroupDark = (): ReactElement => {
   return (
-    <div style={{ margin: "5rem" }}>
+    <div style={{ margin: "10px  0 0 10px" }}>
       <IcToggleButtonGroup appearance="dark">
         <IcToggleButton label="toggle"></IcToggleButton>
         <IcToggleButton label="toggle"></IcToggleButton>
@@ -81,7 +81,7 @@ export const ToggleGroupDark = (): ReactElement => {
 
 export const ToggleGroupLoading = (): ReactElement => {
   return (
-    <div style={{ margin: "5rem" }}>
+    <div style={{ margin: "10px  0 0 10px" }}>
       <IcToggleButtonGroup loading={true}>
         <IcToggleButton label="toggle"></IcToggleButton>
         <IcToggleButton label="toggle"></IcToggleButton>
@@ -91,9 +91,33 @@ export const ToggleGroupLoading = (): ReactElement => {
   );
 };
 
+export const ToggleGroupLoadingLight = (): ReactElement => {
+  return (
+    <div style={{ margin: "10px  0 0 10px" }}>
+      <IcToggleButtonGroup loading={true} appearance="light">
+        <IcToggleButton label="toggle" appearance="light"></IcToggleButton>
+        <IcToggleButton label="toggle" appearance="light"></IcToggleButton>
+        <IcToggleButton label="toggle" appearance="light"></IcToggleButton>
+      </IcToggleButtonGroup>
+    </div>
+  );
+};
+
+export const ToggleGroupLoadingDark = (): ReactElement => {
+  return (
+    <div style={{ margin: "10px  0 0 10px" }}>
+      <IcToggleButtonGroup loading={true} appearance="dark">
+        <IcToggleButton label="toggle" appearance="dark"></IcToggleButton>
+        <IcToggleButton label="toggle" appearance="dark"></IcToggleButton>
+        <IcToggleButton label="toggle" appearance="dark"></IcToggleButton>
+      </IcToggleButtonGroup>
+    </div>
+  );
+};
+
 export const ToggleGroupDisabled = (): ReactElement => {
   return (
-    <div style={{ margin: "5rem" }}>
+    <div style={{ margin: "10px  0 0 10px" }}>
       <IcToggleButtonGroup disabled={true}>
         <IcToggleButton label="toggle"></IcToggleButton>
         <IcToggleButton label="toggle"></IcToggleButton>
@@ -115,12 +139,33 @@ export const ToggleGroupFullWidth = (): ReactElement => {
   );
 };
 
+export const ToggleGroupCustomWidth = (): ReactElement => {
+  return (
+    <div style={{ margin: "1rem" }}>
+      <IcToggleButtonGroup style={{ width: "50%" }}>
+        <IcToggleButton label="toggle"></IcToggleButton>
+        <IcToggleButton label="toggle"></IcToggleButton>
+        <IcToggleButton label="toggle"></IcToggleButton>
+      </IcToggleButtonGroup>
+    </div>
+  );
+};
+export const ToggleGroupLargeLabel = (): ReactElement => {
+  return (
+    <div style={{ margin: "1rem" }}>
+      <IcToggleButtonGroup style={{ width: "50%" }}>
+        <IcToggleButton label="toggle"></IcToggleButton>
+        <IcToggleButton label="toggle with a very very long label"></IcToggleButton>
+      </IcToggleButtonGroup>
+    </div>
+  );
+};
+
 export const ToggleGroupIconRight = (): ReactElement => {
   return (
     <div style={{ margin: "1rem" }}>
       <IcToggleButtonGroup iconPlacement="right">
         <IcToggleButton label="toggle" iconPlacement="right">
-          {" "}
           <SlottedSVG
             slot="icon"
             xmlns="http://www.w3.org/2000/svg"
@@ -143,7 +188,6 @@ export const ToggleGroupIconLeft = (): ReactElement => {
     <div style={{ margin: "1rem" }}>
       <IcToggleButtonGroup iconPlacement="left">
         <IcToggleButton label="toggle" iconPlacement="left">
-          {" "}
           <SlottedSVG
             slot="icon"
             xmlns="http://www.w3.org/2000/svg"
@@ -165,7 +209,6 @@ export const ToggleGroupIconTop = (): ReactElement => {
     <div style={{ margin: "1rem" }}>
       <IcToggleButtonGroup iconPlacement="top">
         <IcToggleButton label="toggle" iconPlacement="top">
-          {" "}
           <SlottedSVG
             slot="icon"
             xmlns="http://www.w3.org/2000/svg"
@@ -188,7 +231,6 @@ export const ToggleGroupIconOnly = (): ReactElement => {
     <div style={{ margin: "1rem" }}>
       <IcToggleButtonGroup variant="icon" accessibleLabel="toggle button">
         <IcToggleButton label="toggle">
-          {" "}
           <SlottedSVG
             slot="icon"
             xmlns="http://www.w3.org/2000/svg"

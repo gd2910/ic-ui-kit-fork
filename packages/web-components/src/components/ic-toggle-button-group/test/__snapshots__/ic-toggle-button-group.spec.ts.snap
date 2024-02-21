@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-toggle-button-group component ic-toggle-button-group render tests should render auto and single selelct 1`] = `
+<ic-toggle-button-group aria-disabled="false" aria-label="Toggle button group" class="default" select-method="auto" select-type="single" tabindex="0" variant="default">
+  <mock:shadow-root>
+    <slot></slot>
+  </mock:shadow-root>
+  <ic-toggle-button class="default expand-toggle-group-child" id="0" label="Toggle" variant="default">
+    <mock:shadow-root>
+      <ic-button appearance="default" aria-checked="false" aria-disabled="false" aria-label="Toggle, unticked" role="checkbox" size="default" variant="secondary">
+        Toggle
+        <slot></slot>
+      </ic-button>
+    </mock:shadow-root>
+  </ic-toggle-button>
+  <ic-toggle-button class="default expand-toggle-group-child" id="1" label="Toggle" variant="default">
+    <mock:shadow-root>
+      <ic-button appearance="default" aria-checked="false" aria-disabled="false" aria-label="Toggle, unticked" role="checkbox" size="default" variant="secondary">
+        Toggle
+        <slot></slot>
+      </ic-button>
+    </mock:shadow-root>
+  </ic-toggle-button>
+  <ic-toggle-button class="default expand-toggle-group-child" id="2" label="Toggle" variant="default">
+    <mock:shadow-root>
+      <ic-button appearance="default" aria-checked="false" aria-disabled="false" aria-label="Toggle, unticked" role="checkbox" size="default" variant="secondary">
+        Toggle
+        <slot></slot>
+      </ic-button>
+    </mock:shadow-root>
+  </ic-toggle-button>
+</ic-toggle-button-group>
+`;
+
+exports[`ic-toggle-button-group component ic-toggle-button-group render tests should render default 1`] = `
+<ic-toggle-button-group aria-disabled="false" aria-label="Toggle button group" class="default" tabindex="0" variant="default">
+  <mock:shadow-root>
+    <slot></slot>
+  </mock:shadow-root>
+  <ic-toggle-button class="default expand-toggle-group-child" id="0" label="Toggle" variant="default">
+    <mock:shadow-root>
+      <ic-button appearance="default" aria-checked="false" aria-disabled="false" aria-label="Toggle, unticked" role="checkbox" size="default" variant="secondary">
+        Toggle
+        <slot></slot>
+      </ic-button>
+    </mock:shadow-root>
+  </ic-toggle-button>
+  <ic-toggle-button class="default expand-toggle-group-child" id="1" label="Toggle" variant="default">
+    <mock:shadow-root>
+      <ic-button appearance="default" aria-checked="false" aria-disabled="false" aria-label="Toggle, unticked" role="checkbox" size="default" variant="secondary">
+        Toggle
+        <slot></slot>
+      </ic-button>
+    </mock:shadow-root>
+  </ic-toggle-button>
+  <ic-toggle-button class="default expand-toggle-group-child" id="2" label="Toggle" variant="default">
+    <mock:shadow-root>
+      <ic-button appearance="default" aria-checked="false" aria-disabled="false" aria-label="Toggle, unticked" role="checkbox" size="default" variant="secondary">
+        Toggle
+        <slot></slot>
+      </ic-button>
+    </mock:shadow-root>
+  </ic-toggle-button>
+</ic-toggle-button-group>
+`;
+
+exports[`ic-toggle-button-group component ic-toggle-button-group render tests should render disabled and with accessibleLabel 1`] = `
+<ic-toggle-button-group accessible-label="a11y label" aria-disabled="true" aria-label="a11y label" class="default disabled" disabled="true" tabindex="0" variant="default">
+  <mock:shadow-root>
+    <slot></slot>
+  </mock:shadow-root>
+  <ic-toggle-button class="default disabled expand-toggle-group-child" id="0" label="Toggle" variant="default">
+    <mock:shadow-root>
+      <ic-button appearance="default" aria-checked="false" aria-disabled="true" aria-label="a11y label, unticked" disabled="" role="checkbox" size="default" title="a11y label" variant="secondary">
+        Toggle
+        <slot></slot>
+      </ic-button>
+    </mock:shadow-root>
+  </ic-toggle-button>
+  <ic-toggle-button class="default disabled expand-toggle-group-child" id="1" label="Toggle" variant="default">
+    <mock:shadow-root>
+      <ic-button appearance="default" aria-checked="false" aria-disabled="true" aria-label="a11y label, unticked" disabled="" role="checkbox" size="default" title="a11y label" variant="secondary">
+        Toggle
+        <slot></slot>
+      </ic-button>
+    </mock:shadow-root>
+  </ic-toggle-button>
+  <ic-toggle-button class="default disabled expand-toggle-group-child" id="2" label="Toggle" variant="default">
+    <mock:shadow-root>
+      <ic-button appearance="default" aria-checked="false" aria-disabled="true" aria-label="a11y label, unticked" disabled="" role="checkbox" size="default" title="a11y label" variant="secondary">
+        Toggle
+        <slot></slot>
+      </ic-button>
+    </mock:shadow-root>
+  </ic-toggle-button>
+</ic-toggle-button-group>
+`;
+
+exports[`ic-toggle-button-group component ic-toggle-button-group render tests should render multi 1`] = `
+<ic-toggle-button-group aria-disabled="false" aria-label="Toggle button group" class="default" select-method="auto" select-type="multi" tabindex="0" variant="default">
+  <mock:shadow-root>
+    <slot></slot>
+  </mock:shadow-root>
+  <ic-toggle-button class="default expand-toggle-group-child" id="0" label="Toggle" variant="default">
+    <mock:shadow-root>
+      <ic-button appearance="default" aria-checked="false" aria-disabled="false" aria-label="Toggle, unticked" role="checkbox" size="default" variant="secondary">
+        Toggle
+        <slot></slot>
+      </ic-button>
+    </mock:shadow-root>
+  </ic-toggle-button>
+  <ic-toggle-button class="default expand-toggle-group-child" id="1" label="Toggle" variant="default">
+    <mock:shadow-root>
+      <ic-button appearance="default" aria-checked="false" aria-disabled="false" aria-label="Toggle, unticked" role="checkbox" size="default" variant="secondary">
+        Toggle
+        <slot></slot>
+      </ic-button>
+    </mock:shadow-root>
+  </ic-toggle-button>
+  <ic-toggle-button class="default expand-toggle-group-child" id="2" label="Toggle" variant="default">
+    <mock:shadow-root>
+      <ic-button appearance="default" aria-checked="false" aria-disabled="false" aria-label="Toggle, unticked" role="checkbox" size="default" variant="secondary">
+        Toggle
+        <slot></slot>
+      </ic-button>
+    </mock:shadow-root>
+  </ic-toggle-button>
+</ic-toggle-button-group>
+`;
