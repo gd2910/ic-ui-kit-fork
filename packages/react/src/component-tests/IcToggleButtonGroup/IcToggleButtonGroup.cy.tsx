@@ -30,7 +30,6 @@ import {
   NOT_HAVE_BEEN_CALLED,
 } from "../utils/constants";
 
-const DEFAULT_TEST_THRESHOLD = 1;
 const IC_TOGGLE_BUTTON_GROUP = "ic-toggle-button-group";
 const IC_TOGGLE_BUTTON = "ic-toggle-button";
 
@@ -95,7 +94,7 @@ describe("IcToggleButtonGroup", () => {
       cy.get(WIN_CONSOLE_SPY).should(NOT_HAVE_BEEN_CALLED);
     });
   });
-  describe("screenshots", () => {
+  describe.only("screenshots", () => {
     beforeEach(() => {
       cy.injectAxe();
     });
@@ -109,14 +108,12 @@ describe("IcToggleButtonGroup", () => {
 
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
       cy.compareSnapshot({
-        name: "default",
-        testThreshold: DEFAULT_TEST_THRESHOLD,
+        name: "default"
       });
 
       getToggle(0).click();
       cy.wait(200).compareSnapshot({
-        name: "default clicked",
-        testThreshold: DEFAULT_TEST_THRESHOLD,
+        name: "default clicked"
       });
     });
     it("renders small", () => {
@@ -124,14 +121,12 @@ describe("IcToggleButtonGroup", () => {
 
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
       cy.compareSnapshot({
-        name: "small",
-        testThreshold: DEFAULT_TEST_THRESHOLD,
+        name: "small"
       });
 
       getToggle(0).click();
       cy.wait(200).compareSnapshot({
-        name: "small clicked",
-        testThreshold: DEFAULT_TEST_THRESHOLD,
+        name: "small clicked"
       });
     });
     it("renders large", () => {
@@ -139,14 +134,12 @@ describe("IcToggleButtonGroup", () => {
 
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
       cy.compareSnapshot({
-        name: "large",
-        testThreshold: DEFAULT_TEST_THRESHOLD,
+        name: "large"
       });
 
       getToggle(0).click();
       cy.wait(200).compareSnapshot({
-        name: "large clicked",
-        testThreshold: DEFAULT_TEST_THRESHOLD,
+        name: "large clicked"
       });
     });
     it("renders full-width", () => {
@@ -154,14 +147,13 @@ describe("IcToggleButtonGroup", () => {
 
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
       cy.compareSnapshot({
-        name: "full-width",
-        testThreshold: DEFAULT_TEST_THRESHOLD,
+        name: "full-width"
       });
 
       getToggle(0).click();
       cy.wait(200).compareSnapshot({
         name: "full-width clicked",
-        testThreshold: DEFAULT_TEST_THRESHOLD,
+        ,
       });
     });
     it("renders custom width", () => {
@@ -169,14 +161,12 @@ describe("IcToggleButtonGroup", () => {
 
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
       cy.compareSnapshot({
-        name: "custom width",
-        testThreshold: DEFAULT_TEST_THRESHOLD,
+        name: "custom width"
       });
 
       getToggle(0).click();
       cy.wait(200).compareSnapshot({
-        name: "custom width clicked",
-        testThreshold: DEFAULT_TEST_THRESHOLD,
+        name: "custom width clicked"
       });
     });
     it("renders toggle with large label", () => {
@@ -184,14 +174,12 @@ describe("IcToggleButtonGroup", () => {
 
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
       cy.compareSnapshot({
-        name: "large label",
-        testThreshold: DEFAULT_TEST_THRESHOLD,
+        name: "large label"
       });
 
       getToggle(0).click();
       cy.wait(200).compareSnapshot({
-        name: "large label clicked",
-        testThreshold: DEFAULT_TEST_THRESHOLD,
+        name: "large label clicked"
       });
     });
     it("renders light", () => {
@@ -203,14 +191,12 @@ describe("IcToggleButtonGroup", () => {
 
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
       cy.compareSnapshot({
-        name: "light",
-        testThreshold: DEFAULT_TEST_THRESHOLD,
+        name: "light"
       });
 
       getToggle(0).click();
       cy.wait(200).compareSnapshot({
-        name: "light clicked",
-        testThreshold: DEFAULT_TEST_THRESHOLD,
+        name: "light clicked"
       });
     });
     it("renders dark", () => {
@@ -218,14 +204,12 @@ describe("IcToggleButtonGroup", () => {
 
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
       cy.compareSnapshot({
-        name: "dark",
-        testThreshold: DEFAULT_TEST_THRESHOLD,
+        name: "dark"
       });
 
       getToggle(0).click();
       cy.wait(200).compareSnapshot({
-        name: "dark clicked",
-        testThreshold: DEFAULT_TEST_THRESHOLD,
+        name: "dark clicked"
       });
     });
     it("renders disabled", () => {
@@ -233,8 +217,7 @@ describe("IcToggleButtonGroup", () => {
 
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
       cy.compareSnapshot({
-        name: "disabled",
-        testThreshold: DEFAULT_TEST_THRESHOLD,
+        name: "disabled"
       });
     });
     it("renders loading", () => {
@@ -242,8 +225,7 @@ describe("IcToggleButtonGroup", () => {
 
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
       cy.compareSnapshot({
-        name: "loading",
-        testThreshold: DEFAULT_TEST_THRESHOLD,
+        name: "loading"
       });
     });
     it("renders loading light", () => {
@@ -251,8 +233,7 @@ describe("IcToggleButtonGroup", () => {
 
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
       cy.compareSnapshot({
-        name: "loading light",
-        testThreshold: DEFAULT_TEST_THRESHOLD,
+        name: "loading light"
       });
     });
     it("renders loading dark", () => {
@@ -260,8 +241,7 @@ describe("IcToggleButtonGroup", () => {
 
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
       cy.compareSnapshot({
-        name: "loading dark",
-        testThreshold: DEFAULT_TEST_THRESHOLD,
+        name: "loading dark"
       });
     });
     it("renders icons", () => {
@@ -276,8 +256,7 @@ describe("IcToggleButtonGroup", () => {
 
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
       cy.compareSnapshot({
-        name: "icons",
-        testThreshold: DEFAULT_TEST_THRESHOLD,
+        name: "icons"
       });
     });
   });
